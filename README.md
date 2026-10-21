@@ -60,12 +60,26 @@ npx expo start
 
 ### Azure (Free Tier F0 — $0/month)
 1. Create a **Speech** resource in the Azure portal, pricing tier **F0 (Free)**.
-2. Copy the **Key** and **Region** into `.env`:
+   - **Region:** pick the datacenter closest to you. From Canada, use
+     **Canada Central** (`canadacentral`); if Free F0 isn't offered there, use
+     **West US 2** (`westus2`). The region only affects latency, *not* the
+     language you practise.
+   - **Cost safety:** the F0 tier never auto-bills — when you hit the monthly
+     quota it simply returns errors instead of charging. The "Pay-As-You-Go"
+     subscription name is just the account type; billing comes from the
+     *pricing tier*, so an F0 resource stays $0. For extra peace of mind, add a
+     small budget alert under **Cost Management → Budgets**.
+2. Copy the **Key** and **Region** into `.env` (region is lowercase, no spaces —
+   "Canada Central" → `canadacentral`):
    ```
    EXPO_PUBLIC_AZURE_SPEECH_KEY=xxxxxxxx
-   EXPO_PUBLIC_AZURE_SPEECH_REGION=westeurope
+   EXPO_PUBLIC_AZURE_SPEECH_REGION=canadacentral
    ```
    F0 includes ~5 audio hours/month of Pronunciation Assessment + 0.5M neural TTS chars/month.
+
+   Practice language is set **in-app** (EN/FR toggle), independent of region.
+   English uses `en-US` — the highest-accuracy English model for pronunciation
+   assessment, which fully covers North-American (incl. Canadian) pronunciation.
 
 ## ⚠️ Expo Go vs. dev build
 

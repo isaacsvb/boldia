@@ -1,0 +1,44 @@
+{
+  "expo": {
+    "name": "BOLD AI",
+    "slug": "bold-ai",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "boldai",
+    "userInterfaceStyle": "dark",
+    "newArchEnabled": true,
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#0B0B12"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "ai.bold.app",
+      "infoPlist": {
+        "NSMicrophoneUsageDescription": "BOLD AI needs microphone access to assess your pronunciation."
+      }
+    },
+    "android": {
+      "package": "ai.bold.app",
+      "permissions": ["RECORD_AUDIO"],
+      "edgeToEdgeEnabled": true
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      [
+        "expo-av",
+        {
+          "microphonePermission": "BOLD AI needs microphone access to assess your pronunciation."
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "azureSpeechRegion": "AZURE_SPEECH_REGION",
+      "azureSpeechKey": "AZURE_SPEECH_KEY"
+    }
+  }
+}
